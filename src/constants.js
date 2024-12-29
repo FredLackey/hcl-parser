@@ -1,13 +1,14 @@
 const TAB_SIZE = 2;
 
 const NODE_TYPES = {
-  RESOURCE: 'resource',
-  MODULE  : 'module',
-  PROVIDER: 'provider',
-  VARIABLE: 'variable',
-  OUTPUT  : 'output',
-  LOCALS  : 'locals',
-  DATA    : 'data',
+  TERRAFORM: 'terraform',
+  RESOURCE : 'resource',
+  MODULE   : 'module',
+  PROVIDER : 'provider',
+  VARIABLE : 'variable',
+  OUTPUT   : 'output',
+  LOCALS   : 'locals',
+  DATA     : 'data',
 }
 
 const LINE_TYPES = {

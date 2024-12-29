@@ -1,5 +1,5 @@
 const _              = require('cleaner-node');
-const { lines: l }   = require('../helpers');
+const { lines: l, nodes: n }   = require('../helpers');
 const { TAB_SIZE, LINE_TYPES: lt } = require('../constants');
 
 const loadFile = async (filePath) => {
@@ -171,6 +171,16 @@ const loadFile = async (filePath) => {
 
     console.debug(`Unhandled line type: ${type}`);
 
+  }
+
+  nodes.forEach((node, i) => {
+    nodes[i].name = n.toName(node.lines[0]);
+  });
+
+  // Find notes without a name
+  const unnamed = nodes.filter(x => !x?.name);
+  if (unnamed.length > 0) {
+    console.debug('Nodes without a name:', unnamed);
   }
 
   return nodes;
