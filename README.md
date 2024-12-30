@@ -6,6 +6,32 @@ Parses and compares Terraform HCL IaC files.
 
 `npm i @fredlackey/hcl-parser`  
 
+## Resulting Data  
+
+Each file converted to a object structured as follows:  
+
+### File Object  
+
+```javascript
+{
+  name : 'filename.tf',
+  path : '/var/hcl/all-files/filename.tf',
+  nodes: []  // Array of Nodes found within the file
+}
+```
+
+### Node Object  
+
+```javascript
+{
+  lines  : [],  // Lines from the HCL file for the node
+  name   : 'aws_instance(my-instance)',
+  props  : {},
+  tags   : {},
+  tagsAll: {}
+}
+```
+
 ## Usage  
 
 The HCL Parser will load and compare single Terraform HCL IaC files or a full directory structure of files.  Supply either a folder path or a file path.
@@ -74,4 +100,16 @@ Resulting data:
     request: ''   // Supplied file or folder path
   },
 }
-```
+```  
+
+## Limitations  
+
+Detection of Tags / Tags All only works with AWS at the moment.  Will be expanding to support Google Cloud Platform's Label logic.
+
+## Contact Info  
+
+Need a hand with your Terraform implementation?  Feel free to drop me a note:  
+
+**Fred Lackey**  
+[https://fredlackey.com](https://fredlackey.com)  
+[fred.lackey@gmail.com](mailto:fred.lackey@gmail.com)  
