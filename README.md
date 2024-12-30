@@ -13,7 +13,7 @@ The HCL Parser will load and compare single Terraform HCL IaC files or a full di
 ### Parsing a Folder Structure  
 
 ```javascript
-const hclParser = require('fredlackey/hcl-parser');
+const hclParser = require('@fredlackey/hcl-parser');
 
 const TEST_FOLDER = '/var/hcl/all-files';
 

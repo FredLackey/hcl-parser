@@ -1,6 +1,6 @@
 {
-  "name"       : "fredlackey/hcl-parser",
-  "version"    : "0.0.0",
+  "name"       : "@fredlackey/hcl-parser",
+  "version"    : "0.0.1",
   "description": "Parses Terraform HCL IaC files",
   "main"       : "src/index.js",
   "scripts"    : {
