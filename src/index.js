@@ -1,6 +1,6 @@
-const _        = require('cleaner-node');
-const path     = require('path');
-const loadFile = require('./utils/load-file');
+const _     = require('cleaner-node');
+const path  = require('path');
+const utils = require('./utils');
 
 const parse = async (fileOrPath) => {
 
@@ -51,7 +51,7 @@ const parse = async (fileOrPath) => {
     data.files[i] = {
       path : filePath,
       name : path.basename(filePath),
-      nodes: await loadFile(filePath)
+      nodes: await utils.loadFile(filePath)
     };
   }
 
@@ -59,6 +59,33 @@ const parse = async (fileOrPath) => {
 
 };
 
+const compare = async (currentPath, previousPath) => {
+
+  let currentData = null;
+  try {
+    currentData = await parse(currentPath);
+  } catch (ex) {
+    throw new Error(`Error parsing current path: ${ex.message}`);
+  }
+
+  let previousData = null;
+  try {
+    previousData = await parse(previousPath);
+  } catch (ex) {
+    throw new Error(`Error parsing previous path: ${ex.message}`);
+  }
+
+  const comparison = utils.compareData(currentData, previousData);
+
+  return {
+    current : currentData,
+    previous: previousData,
+    comparison
+  };
+
+};
+
 module.exports = {
   parse,
+  compare
 }

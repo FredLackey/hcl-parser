@@ -7,10 +7,16 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Parse Nodes",
+      "name": "Parse Files",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/tests/parse-nodes.test.js",
-      "envFile": "${workspaceFolder}/.env.sample"
-    }
+      "program": "${workspaceFolder}/tests/parse-files.test.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Compare Nodes",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/tests/compare-nodes.test.js"
+    },
   ]
 }
